@@ -1,0 +1,4 @@
+				C
+
+Es un lenguaje que traduce directamente a lenguaje maquina, lo que lo hace mas rapido que otros IDE. Aprenderlo al parecer es facil, lo dificil viene al momento de conocer los apuntadores, veremos que pasa...
+

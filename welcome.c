@@ -2,7 +2,7 @@
 
 int main(){
 
-    printf("Welcome");
+    printf("Welcome\n");
     printf("Boli :3");
     //coment xd
     return 0;

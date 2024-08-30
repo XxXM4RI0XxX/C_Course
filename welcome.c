@@ -4,6 +4,10 @@ int main(){
 
     printf("Welcome\n");
     printf("Boli :3");
-    //coment xd
+    //comment xd
     return 0;
+    /*
+    comment block
+    */
+
 }

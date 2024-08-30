@@ -2,3 +2,13 @@
 
 Es un lenguaje que traduce directamente a lenguaje maquina, lo que lo hace mas rapido que otros IDE. Aprenderlo al parecer es facil, lo dificil viene al momento de conocer los apuntadores, veremos que pasa...
 
+Por ahora la sintaxis es muy parecida a la de Java, comentarios, tipos de datos etc...
+
+Información. Es un conjunto de datos que por si solos no dicen nada, pero en conjunto pueden decir cualquier cosa.
+
+C es programacion estructuradas, un conjunto de instrucciones que se ejecutan una detras de otra.
+
+En C se puede escribir en cualquier lugar del documento, EN CUALQUIERA!
+
+Los corrimientos (>>/<<) no mueven el valor en si, mueven sus valores en binario, ej:
+0101 >> 1 = 0010 | 11001 << 2 = 00100 | 1111111 >> 389843798047 = 0000000

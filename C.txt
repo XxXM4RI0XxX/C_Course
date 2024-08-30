@@ -12,3 +12,19 @@ En C se puede escribir en cualquier lugar del documento, EN CUALQUIERA!
 
 Los corrimientos (>>/<<) no mueven el valor en si, mueven sus valores en binario, ej:
 0101 >> 1 = 0010 | 11001 << 2 = 00100 | 1111111 >> 389843798047 = 0000000
+
+Imprimir en pantalla es imprimir siempre en StringFormat, (declarando primero la "ubicacion" y el %tipo% de dato a escribir, para despues señalar que dato es el que se va a representar).
+
+Caracteres de modificación:
+%c char
+%d entero
+%u entero sin signo en base decimal
+%o entero en base octal
+%x entero en base hexadecimal
+%e Un número real en coma flotante, con exponente
+%f float
+%s String (Cadena de caracteres)
+%p puntero
+
+Las variables se pueden definir desde un inicio del proyecto, al igual que en C se pueden definir constantes.
+variables: TipoDato NombreDato = ValorDato; | constantes: #define NOMBREDATO ValorDato;

@@ -10,19 +10,29 @@ void main()
     gets(cad);
 
     int lenght = 0;
-    //Obtener tamaño
+    //Obtener tamaño y quitar espacios
     while (cad[lenght]!=0)
     {
+        if(cad[lenght]==' ')
+        {
+            for(int i = lenght ; i < 30 ;i++)
+            {
+            cad[i]=cad[i+1];
+            }
+        } 
         lenght++;
     }
+
+    int val = 0;
     //Verificar si es palindromo
     for (int i=0,f = lenght; i < lenght; i++,f--)
     {
-        if(cad[i]==' ')i++;
-        if(cad[f]==' ')f--;
         if(cad[i]==cad[f]){
-            printf(">>> es palindromo");
+            printf(">> NO es palindromo");
+            val++;
+            break;
         }
-        else printf("no Es palindromo");
     }
+
+    if(val==0) printf(">> Es palindromo");
 }

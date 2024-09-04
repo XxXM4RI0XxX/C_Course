@@ -15,4 +15,5 @@ int main(){
 
     printf("%f es el promedio final",prom);
 
+    return 0;
 }

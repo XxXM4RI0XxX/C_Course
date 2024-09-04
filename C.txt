@@ -28,3 +28,18 @@ Caracteres de modificación:
 
 Las variables se pueden definir desde un inicio del proyecto, al igual que en C se pueden definir constantes.
 variables: TipoDato NombreDato = ValorDato; | constantes: #define NOMBREDATO ValorDato;
+
+Arreglo. Estructura de datos mas simple. **Conjunto ordenado de datos del mismo tipo**.
+Los arreglos estan compuestos de celdas, cada celda siendo un espacio en el arreglo, se comienza a contar desde la celda 0 hasta la n celda. Cada celda tiene un identificador.
+
+int arr [10]; // TipoDato NombreDato [TamañoArreglo];
+
+Una hoja de excel, es una matriz; no infinita, pero si de muuucha capacidad.
+
+Arreglo fijo. Se define el tamaño del arreglo.
+Arreglo dinamico. Su tamaño se adapta a la cantidad de datos. (Se usa cuando no se sabe exactamente la cantidad de datos a recibir).
+
+Aqui no existen Strings, son arreglos de caracteres. Ej. char var[30]; (Tienen tamaño fijo, almenos que sea dinamico)
+Para recibir una cadena: scanf("%s", var);
+O, una manera mas eficaz: gets(var);
+

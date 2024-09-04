@@ -30,4 +30,8 @@ void main(){
    printf("Salto de \f pagina\n");// ??
    printf("Retorno de\r carro carro ca\rrro?\n");// FF
    printf("Poner \"comillas\" | Poner ¿Signo de interrogacion?\? | Poner \\ barra \\ invertida\n");//Para mostrar signos reservados (" \ ?)
+
+   char cadena [30];
+   scanf("%s", &cadena);
+   printf("%s", cadena);
 }

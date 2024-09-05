@@ -43,3 +43,35 @@ Aqui no existen Strings, son arreglos de caracteres. Ej. char var[30]; (Tienen t
 Para recibir una cadena: scanf("%s", var);
 O, una manera mas eficaz: gets(var);
 
+LIBRERIAS.
+
+<stdio.h>
+<stdlib.h>
+<string.h>
+ - strlen(var); Tamaño del String
+ - strcpy(var1,var2); Copiar variable
+ - srtcat(var1,var2); Concatenar cadenas
+ - int val = strcmp(var1,var2);
+  + Regresa 0 si son iguales
+  + -1 si var1 es alfabeticamente menor que var2
+  + 1 si var1 es alfabeticamente mayor que var2
+   (var1="Ana";var2="Alan"; var1 es alfabeticamente mayor)
+
+   ////// ESTRUCTURA DE datos
+
+   struct Producto{ // Definir un tipo de dato
+    long codigo; 
+    float precio;
+   }
+
+   struct Producto unProducto;
+   unProducto.codigo = 123456789L;
+   unProducto.precio = 2.50;
+   printf("Producto con codigo &lu y precio %.2f", unProducto.codigo, unProducto.precio);
+
+   typedef struct nombre{
+
+    char name[30];
+    char firstLastName[30];
+    char secondLastName[30]:
+   } Nombre;

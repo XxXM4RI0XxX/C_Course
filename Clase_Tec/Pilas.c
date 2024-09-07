@@ -55,9 +55,13 @@ void main()
     switch (op)
     {
     case 1:
+        if(i<m)
+        {
         printf("Valor a meter: ");
         scanf("%d", &num);
         push(pila,num);
+        }
+        else printf(">>> Overflow...\n");
         break;
     case 2:
         num = pop(pila);
@@ -90,10 +94,5 @@ int pop(int arr[])
 
 void push(int arr[], int num)
 {
-    i++;
-    if(i<10)
-    {  
-        arr[i]=num;
-    }
-    else printf(">>> Overflow...\n");
+    arr[++i]=num;
 }

@@ -27,7 +27,7 @@ void main()
     //Verificar si es palindromo
     for (int i=0,f = lenght; i < lenght; i++,f--)
     {
-        if(cad[i]==cad[f]){
+        if(cad[i]!=cad[f]){
             printf(">> NO es palindromo");
             val++;
             break;

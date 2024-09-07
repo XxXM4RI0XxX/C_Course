@@ -42,7 +42,9 @@ int i = -1;
     [3]
     [1]
     [3]
-     x es igual al valor sacado    
+     x es igual al valor sacado  (En este caso 5)   
+    Al hacer pop(); cuando la lista esta vacia
+     ! - UnderFlow (Fuera de tamaño de memoria)
 */
 void main()
 {

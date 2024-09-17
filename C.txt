@@ -6,7 +6,7 @@ Por ahora la sintaxis es muy parecida a la de Java, comentarios, tipos de datos 
 
 Información. Es un conjunto de datos que por si solos no dicen nada, pero en conjunto pueden decir cualquier cosa.
 
-C es programacion estructuradas, un conjunto de instrucciones que se ejecutan una detras de otra.
+C es programacion estructurada, un conjunto de instrucciones que se ejecutan una detras de otra.
 
 En C se puede escribir en cualquier lugar del documento, EN CUALQUIERA!
 
@@ -26,8 +26,14 @@ Caracteres de modificación:
 %s String (Cadena de caracteres)
 %p puntero
 
+//////VARIABLES Y CONSTANTES
 Las variables se pueden definir desde un inicio del proyecto, al igual que en C se pueden definir constantes.
 variables: TipoDato NombreDato = ValorDato; | constantes: #define NOMBREDATO ValorDato;
+
+Una constante se delclara usando 'const' antes del tipo y nombre del valor; esto hara que no pueda ser modificada por ningun motivo, y si llegara a ser modificada, el compilador suelta un error.
+    Ej: const float gravedad = 9.721;
+
+Unsigned: El valor declarado como unsigned no tendra ningun signo, por lo tanto siempre sera positivo. Esto puede servir para aprovechar el 100% de la capacidad maxima de un tipo de dato (Ej, con byte, enves de tener valores entre -128 a 127, tendra un rango entre 0 y 255)
 
 Arreglo. Estructura de datos mas simple. **Conjunto ordenado de datos del mismo tipo**.
 Los arreglos estan compuestos de celdas, cada celda siendo un espacio en el arreglo, se comienza a contar desde la celda 0 hasta la n celda. Cada celda tiene un identificador.
@@ -42,11 +48,31 @@ Arreglo dinamico. Su tamaño se adapta a la cantidad de datos. (Se usa cuando no
 Aqui no existen Strings, son arreglos de caracteres. Ej. char var[30]; (Tienen tamaño fijo, almenos que sea dinamico)
 Para recibir una cadena: scanf("%s", var);
 O, una manera mas eficaz: gets(var);
+////////////
 
-LIBRERIAS.
+//////////////LIBRERIAS.
 
 <stdio.h>
+ - Permite la lectrura y escritura de datos en el programa ( Standard input/output )
+ 
 <stdlib.h>
+ - Proporciona funciones para gestión de memoria, conversión de cadenas, control de procesos, generación de números aleatorios y otras utilidades.
+  Es complemento de la libreria stdio. Algunos de los comandos que incluye:
+  - MEMORIA
+   + malloc(size_type size): Asigna bloque de memoria dinamica a un tamaño especifico
+   + realloc(void bloq_asignado, size_type size): Cambia el tamaño de un bloque de memoria previamente asginado
+   + free(void bloq_asignado): Libera el bloque de memoria
+ - CONVERSION DE CADENAS
+   + int atoi(cadena): Convierte una cadena a un entero
+   + double atof(cadena): Convierte una cadena a un numero de punto flotante
+ - CONTROL PROCESOS
+   + void exit(int status): Termina el programa y devuelve un codigo de estado
+   + int atexit(void (*funcion)(void)): Llama a una funcion, y termina el programa
+ - EXTRAS
+   + int rand(): Genera un numero aleatorio
+   + int srand(unasigned int semilla): Estable un rango desde el que se generara el numero aleatorio
+   + int abs(numero): Devuelve el valor absoluto de un numero
+
 <string.h>
  - strlen(var); Tamaño del String
  - strcpy(var1,var2); Copiar variable
@@ -57,7 +83,7 @@ LIBRERIAS.
   + 1 si var1 es alfabeticamente mayor que var2
    (var1="Ana";var2="Alan"; var1 es alfabeticamente mayor)
 
-   ////// ESTRUCTURA DE datos
+////// ESTRUCTURA DE DATOS
 
    struct Producto{ // Definir un tipo de dato
     long codigo; 

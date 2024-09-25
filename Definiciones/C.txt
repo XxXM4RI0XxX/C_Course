@@ -101,3 +101,7 @@ O, una manera mas eficaz: gets(var);
     char firstLastName[30];
     char secondLastName[30]:
    } Nombre;
+
+  //Escritura en infijo
+  Prefijo: Antes del termino
+  Posfijo: Depsues del termino

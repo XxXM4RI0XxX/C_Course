@@ -30,6 +30,11 @@ Caracteres de modificación:
 Las variables se pueden definir desde un inicio del proyecto, al igual que en C se pueden definir constantes.
 variables: TipoDato NombreDato = ValorDato; | constantes: #define NOMBREDATO ValorDato;
 
+Se puede declarar un mismo valor a diferentes variables al mismo tiempo, usando la siguiente sintaxis:
+ var1 = var2 = ... = varN = x; (Se lee de derecha a izquierda)
+De esta manera, todas las variables se les asigna el valor de x.
+Si se usan punteros (*var1), enves de guardar los valores, se guarda la direccion a la que apunta el primer puntero (*varN).
+
 Una constante se delclara usando 'const' antes del tipo y nombre del valor; esto hara que no pueda ser modificada por ningun motivo, y si llegara a ser modificada, el compilador suelta un error.
     Ej: const float gravedad = 9.721;
 
@@ -48,9 +53,8 @@ Arreglo dinamico. Su tamaño se adapta a la cantidad de datos. (Se usa cuando no
 Aqui no existen Strings, son arreglos de caracteres. Ej. char var[30]; (Tienen tamaño fijo, almenos que sea dinamico)
 Para recibir una cadena: scanf("%s", var);
 O, una manera mas eficaz: gets(var);
-////////////
 
-//////////////LIBRERIAS.
+////////////// LIBRERIAS.
 
 <stdio.h>
  - Permite la lectrura y escritura de datos en el programa ( Standard input/output )
@@ -79,9 +83,11 @@ O, una manera mas eficaz: gets(var);
  - srtcat(var1,var2); Concatenar cadenas
  - int val = strcmp(var1,var2);
   + Regresa 0 si son iguales
-  + -1 si var1 es alfabeticamente menor que var2
-  + 1 si var1 es alfabeticamente mayor que var2
+  + 1 siz var1 es alfabeticamente menor que var2
+  + -1 si var1 es alfabeticamente mayor que var2
    (var1="Ana";var2="Alan"; var1 es alfabeticamente mayor)
+ - char *strdup (cadena) = Duplica una cadena de caracteres
+  
 
 ////// ESTRUCTURA DE DATOS
 
@@ -105,3 +111,16 @@ O, una manera mas eficaz: gets(var);
   //Escritura en infijo
   Prefijo: Antes del termino
   Posfijo: Depsues del termino
+
+//////////////////////     COLAS
+
+
+
+Una cola es como una pila, pero esta puede entrar por un lado, y salir por el contrario.
+
+FIFO: First in First out (Primero que entra primero que sale)
+LIFO: Last in First out (Ultimo que entra primero que sale [Pila])
+
+Colas con arreglo fijo, hay que recorrer cada elemento al momento de sacar alguno.
+
+Colas dinamicas, el primer apuntador apunta al segundo, el segundo al tercero, etc.

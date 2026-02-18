@@ -2,11 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct nodo
+typedef struct elem
 {
     var *nodoV;
     ope *nodoO;
-}nodo;
+}elem;
 
 typedef struct var
 {
@@ -56,8 +56,8 @@ char prefijo(char ec)
 
 char posfijo(char ec)
 {
-    nodo *nodoMain;
-    nodoMain = malloc(sizeof(nodo));
+    elem *nodoMain;
+    nodoMain = malloc(sizeof(elem));
     raizV = malloc(sizeof(var));
     raizO = malloc(sizeof(ope));
     nodoMain->nodoO->sig = NULL;

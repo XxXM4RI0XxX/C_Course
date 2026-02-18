@@ -5,6 +5,7 @@ typedef struct elem
 {
     int value;
     struct elem *sig;
+    struct elem *ant;
 } elem;
 
 elem *raiz = NULL;
@@ -15,7 +16,7 @@ void ver();
 
 void main()
 {
-    printf("\t>>>>>>>>>>>>>> LISTAS SIMPLEMENTE LIGADAS <<<<<<<<<<<<<<<\n\n");
+    printf("\t>>>>>>>>>>>>>> LISTAS DOBLEMENTE LIGADAS <<<<<<<<<<<<<<<\n\n");
     int opt;
 
     do
@@ -34,6 +35,7 @@ void main()
 
             nuevo = malloc(sizeof(elem));
             nuevo->sig = NULL;
+            nuevo->ant = NULL;
 
             do
             {
@@ -85,7 +87,8 @@ void meter_ordenar(elem *elemento)
         {
             elem *aux = raiz;
             raiz = elemento;
-            raiz->sig = aux;
+            raiz->sig = elemento;
+            elemento->ant = raiz;
         }
         else
         {
@@ -93,11 +96,15 @@ void meter_ordenar(elem *elemento)
 
             while (aux->sig != NULL)
             {
-                if (elemento->value < aux->sig->value)
+                if (elemento->value < aux->sig->value && elemento->value > aux->ant->value)
                 {
-                    aux2 = aux->sig;
+                    elemento->sig = aux->sig;
                     aux->sig = elemento;
-                    elemento->sig = aux2;
+                    elemento->ant = aux;
+                    if(elemento->sig != NULL)
+                    {
+                        elemento->sig->ant = elemento;
+                    }
                     break;
                 }
                 aux = aux->sig;
@@ -126,54 +133,27 @@ int sacar(int opt)
             free(aux);
             return val;
         case 2:
-            if (raiz->sig == NULL)
-                return sacar(1);
-            else
-            {
-                while (aux->sig->sig != NULL)
-                    aux = aux->sig;
-                val = aux->sig->value;
-                aux->sig = NULL;
-                return val;
-            }
+            while (aux->sig != NULL)
+                aux = aux->sig;
+            val = aux->value;
+            aux = NULL;
+            return val;
         case 3:
             int num;
             printf("Valor: ");
             scanf("%d", &num);
-            elem *aux2;
+            elem *auxA;
 
             if (raiz->value == num)
             {
-                if (raiz->sig == NULL)
-                    sacar(1);
-                else
-                {
-                    aux = raiz->sig;
-                    free(raiz);
-                    raiz = aux;
-                    return num;
-                }
+                aux = raiz->sig;
+                free(raiz);
+                raiz = aux;
+                return num;
             }
             else
             {
-                while (aux->value != num && aux->sig != NULL)
-                    aux = aux->sig;
-                if (aux->value == num)
-                {
-                    if (aux->sig == NULL)
-                        sacar(2);
-                    else
-                    {
-                        aux2 = raiz;
-                        while (aux2->sig->sig != aux->sig)
-                            aux2 = aux2->sig;
-                        aux2->sig = aux->sig;
-                        free(aux);
-                        return num;
-                    }
-                }
-                else
-                    return 0;
+                
             }
         }
     }

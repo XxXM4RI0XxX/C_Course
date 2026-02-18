@@ -2,14 +2,14 @@
 #include <stdlib.h>
 #include <conio.h>
 
-typedef struct nodo
+typedef struct elem
 {
     int info;
-    struct nodo *sig;
-} nodo;
+    struct elem *next;
+} elem;
 
 
-nodo *raiz = NULL;
+elem *raiz = NULL;
 
 int menu()
 {
@@ -28,20 +28,20 @@ void agregarNum()
         printf("\nQue numero desea ingresar?\n>");
         scanf("%d", &x);
 
-        nodo *new;
+        elem *new;
         
-        new = malloc(sizeof(nodo));
+        new = malloc(sizeof(elem));
         new -> info = x;
-        new -> sig = NULL;
+        new -> next = NULL;
 
         if(raiz == NULL)  
             raiz = new;
         else
         {
-            nodo *aux = raiz;
-            while (aux -> sig != NULL)
-                aux = aux -> sig;
-            aux -> sig = new;
+            elem *aux = raiz;
+            while (aux -> next != NULL)
+                aux = aux -> next;
+            aux -> next = new;
         }
 }
 
@@ -52,7 +52,7 @@ int pop()
     {
         return -1;
     }
-    else if(raiz -> sig == NULL)
+    else if(raiz -> next == NULL)
     {
         int num = raiz -> info;
         raiz = NULL;
@@ -61,12 +61,12 @@ int pop()
     else
     {
         int num;
-        nodo *aux = raiz;
-        while(aux->sig->sig != NULL) {
-        aux = aux -> sig;
+        elem *aux = raiz;
+        while(aux->next->next != NULL) {
+        aux = aux -> next;
         }
-        num = aux -> sig -> info;
-        aux -> sig = NULL;
+        num = aux -> next -> info;
+        aux -> next = NULL;
         
         return num;
     }
@@ -81,11 +81,11 @@ void PilaPrint()
     }
     else
     {
-        nodo *elemento = raiz;
+        elem *elemento = raiz;
         while (elemento != NULL)
         {
             printf("[%d]", elemento -> info);
-            elemento = elemento -> sig;
+            elemento = elemento -> next;
         }
     }
 

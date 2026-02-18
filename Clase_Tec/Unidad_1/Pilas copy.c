@@ -10,7 +10,7 @@ typedef struct
 {
     int info;
     nodo *sig;
-}nodo; //Estructura con un entero 'info' y un nodo apuntador 'sig'
+}elem; //Estructura con un entero 'info' y un nodo apuntador 'sig'
 
 nodo *raiz = NULL;//Nodo raiz
 

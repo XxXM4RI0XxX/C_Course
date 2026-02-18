@@ -5,6 +5,7 @@ typedef struct elem
 {
     int value;
     struct elem *sig;
+    struct elem *ant;
 } elem;
 
 elem *raiz = NULL;
@@ -15,7 +16,7 @@ void ver();
 
 void main()
 {
-    printf("\t>>>>>>>>>>>>>> LISTAS SIMPLEMENTE LIGADAS <<<<<<<<<<<<<<<\n\n");
+    printf("\t>>>>>>>>>>>>>> LISTAS DOBLEMENTE LIGADAS <<<<<<<<<<<<<<<\n\n");
     int opt;
 
     do
@@ -32,8 +33,11 @@ void main()
             elem *nuevo;
             int valor;
 
+            elem ola;
+
             nuevo = malloc(sizeof(elem));
             nuevo->sig = NULL;
+            nuevo->ant = NULL;
 
             do
             {
@@ -86,25 +90,28 @@ void meter_ordenar(elem *elemento)
             elem *aux = raiz;
             raiz = elemento;
             raiz->sig = aux;
+            aux->ant = elemento;
         }
         else
         {
-            elem *aux = raiz, *aux2;
+            elem *aux = raiz;
 
-            while (aux->sig != NULL)
+            while (aux != NULL)
             {
-                if (elemento->value < aux->sig->value)
+                if (aux != raiz && aux->ant->value < elemento->value && aux->value > elemento->value)
                 {
-                    aux2 = aux->sig;
+                    elemento->sig = aux;
+                    elemento->ant = aux->ant;
+                    aux->ant = elemento;
+                    elemento->ant->sig = elemento;
+                }
+                if (elemento->ant == NULL && aux->sig == NULL)
+                {
                     aux->sig = elemento;
-                    elemento->sig = aux2;
-                    break;
+                    elemento->ant = aux;
                 }
                 aux = aux->sig;
             }
-
-            if (elemento->sig == NULL)
-                aux->sig = elemento;
         }
     }
 }
@@ -122,7 +129,13 @@ int sacar(int opt)
         {
         case 1:
             val = raiz->value;
-            raiz = raiz->sig;
+            if (raiz->sig == NULL)
+                raiz = NULL;
+            else
+            {
+                raiz = raiz->sig;
+                raiz->ant = NULL;
+            }
             free(aux);
             return val;
         case 2:
@@ -130,10 +143,15 @@ int sacar(int opt)
                 return sacar(1);
             else
             {
-                while (aux->sig->sig != NULL)
+                while(aux->sig != NULL)
                     aux = aux->sig;
-                val = aux->sig->value;
+                
+                val = aux->value;
+                aux = aux->ant;
                 aux->sig = NULL;
+                aux = aux->sig;
+                free(aux);
+                
                 return val;
             }
         case 3:
@@ -143,31 +161,22 @@ int sacar(int opt)
             elem *aux2;
 
             if (raiz->value == num)
-            {
-                if (raiz->sig == NULL)
-                    sacar(1);
-                else
-                {
-                    aux = raiz->sig;
-                    free(raiz);
-                    raiz = aux;
-                    return num;
-                }
-            }
+                sacar(1);
             else
             {
                 while (aux->value != num && aux->sig != NULL)
                     aux = aux->sig;
+
                 if (aux->value == num)
                 {
                     if (aux->sig == NULL)
                         sacar(2);
                     else
-                    {
-                        aux2 = raiz;
-                        while (aux2->sig->sig != aux->sig)
-                            aux2 = aux2->sig;
+                    {   
+                        num = aux->value;
+                        aux2 = aux->ant;
                         aux2->sig = aux->sig;
+                        aux->ant = aux2;
                         free(aux);
                         return num;
                     }

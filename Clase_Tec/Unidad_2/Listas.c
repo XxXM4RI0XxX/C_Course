@@ -3,13 +3,13 @@
 
 // *cabeza(es la raiz) -> *bagonos
 
-typedef struct nodo
+typedef struct elem
 {
     int valor;
-    struct nodo *sig;
-}nodo;
+    struct elem *next;
+}elem;
 
-nodo *raiz = NULL;
+elem *raiz = NULL;
 //Insertar, sacar, ordenar
 void main()
 {
